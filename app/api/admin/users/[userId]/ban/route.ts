@@ -26,7 +26,7 @@ export async function POST(
       action: banned ? 'ban_user' : 'unban_user',
       target_user_id: String(userId),
       details: { reason },
-    });
+    } as any);
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
