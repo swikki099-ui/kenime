@@ -1,0 +1,262 @@
+
+I am building a static-site hosting platform like Netlify/Vercel but extremely simplified. Users will upload a ZIP file containing HTML/CSS/JS, and my system will host their site at a path-based URL:
+https://kenime.cc/<username>/ instead of subdomains.
+The platform is static-only: no server-side languages, no backend execution, no containers.
+
+Build the entire system architecture, UI, backend, and feature set based on the following required features:
+
+
+---
+
+1. Hosting Method
+
+All websites are hosted via folder-based routes: /sites/<username>/...
+
+Public URL for a site: kenime.cc/<username>/
+
+Use Vercel rewrites to map: /username/* → /sites/username/*
+
+Ensure no wildcard subdomains are used.
+
+
+
+---
+
+2. User System
+
+Signup/Login
+
+Username selection
+
+Dashboard showing list of sites
+
+
+Basic rate limits (upload limit, daily deploy limit, max sites per user)
+
+
+
+---
+
+3. Upload & Publish Flow
+
+Upload ZIP
+
+Extract into /sites/<username>/
+
+Replace old site when publishing
+
+Preview mode: /preview/<id>/
+
+Publish button moves preview → live
+
+Auto-detect missing index.html
+
+Error if structure is invalid
+
+Block disallowed file types (PHP, EXE, PY, SH, binaries)
+
+
+
+---
+
+4. File Manager
+
+Minimal:
+
+Upload ZIP
+
+Replace site
+
+Delete site
+
+Auto-folder clean on replace
+
+
+Optional:
+
+Browser file editor (Monaco)
+
+Drag-drop file upload
+
+Create/delete files
+
+
+
+---
+
+5. Analytics
+
+Total views
+
+Last updated
+
+Storage used
+
+Bandwidth estimate
+
+Simple pageview counter (DB or KV)
+
+
+
+---
+
+
+---
+
+7. SEO Tools
+
+Auto-generate sitemap per site
+
+Basic meta tag generator
+
+Favicon generator
+
+Check for missing <title> or broken links
+
+
+
+---
+
+8. Security
+
+Strip all backend files
+
+Limit file size
+
+Sanitize file names
+
+Enforce static-only content
+
+Rate limit uploads
+
+Disallow scripts with server-side intent
+
+Ensure clean routing (no escape from folder)
+
+Scan uploaded ZIP for malicious content
+
+
+
+---
+
+9. Admin Features
+
+View all sites
+
+Delete abusive sites
+
+Ban users
+
+Usage overview
+
+Global analytics
+
+IP logging (basic)
+
+Takedown system
+
+
+
+---
+
+10. Routing & Vercel Setup
+
+Generate complete configuration:
+
+vercel.json rewrite rules
+
+API structure for uploads
+
+Folder structure: /sites/<username>/
+
+Middleware to dynamically route paths
+
+Serve static files correctly
+
+Prevent directory traversal
+
+Preview URL routing
+
+
+
+---
+
+11. DB Structure [ use supabase]
+
+Include tables for:
+
+Users
+
+Sites
+
+Deployments
+
+Analytics (views, hits, storage size)
+
+Templates
+
+Rate limits
+
+Admin logs
+
+
+
+---
+
+12. UI/UX Design
+
+Dashboard must include:
+
+“Create new site”
+
+“Upload ZIP”
+
+“Preview / Publish”
+
+“Replace site”
+
+“Delete site”
+
+“Analytics” Section
+
+Storage usage meter
+
+File manager (if chosen)
+
+Settings: username, display name, password change
+
+
+
+---
+
+13. Hard Requirements
+
+Static-only
+
+No subdomains
+
+All hosted under /username/
+
+All sites must work even with relative assets
+
+Vercel must be able to serve all static content
+
+The system must scale to thousands of users
+
+
+
+---
+for ui/ux and website design please ui modern design and use icons too 
+, admin panel have default one admin for admin login. 
+
+Project Name is KENIME , 
+
+Must have database code with instructions 
+
+and before completing this ensure that
+(Set up your Supabase project and configure the required secrets
+Implement ZIP upload and file management
+Build preview/publish workflows
+Add analytics and SEO tools
+Create the admin dashboard ) and all things are implemented and now ready to host it... 
+create complete function 
