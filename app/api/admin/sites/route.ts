@@ -52,7 +52,7 @@ export async function DELETE(request: NextRequest) {
       action: 'delete_site',
       target_site_id: String(siteId),
       details: { reason },
-    });
+    } as any);
 
     return NextResponse.json({ success: true });
   } catch (error: any) {
