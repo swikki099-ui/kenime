@@ -1,11 +1,11 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { readdir, readFile } from 'fs/promises';
 import { join } from 'path';
 import * as cheerio from 'cheerio';
 
 export async function GET(
-  request: Request,
-  { params }: { params: { username: string } }
+  request: NextRequest,
+  { params }: { params: Promise<{ username: string }> }
 ) {
   try {
     const { username } = await params;
