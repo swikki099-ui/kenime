@@ -1,9 +1,9 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { requireAdmin, createServiceClient } from '@/lib/auth/session';
 
 export async function POST(
-  request: Request,
-  { params }: { params: { userId: string } }
+  request: NextRequest,
+  { params }: { params: Promise<{ userId: string }> }
 ) {
   try {
     const admin = await requireAdmin();
