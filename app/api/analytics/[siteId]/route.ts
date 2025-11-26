@@ -1,9 +1,9 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { requireAuth, createServiceClient } from '@/lib/auth/session';
 
 export async function GET(
-  request: Request,
-  { params }: { params: { siteId: string } }
+  request: NextRequest,
+  { params }: { params: Promise<{ siteId: string }> }
 ) {
   try {
     const user = await requireAuth();
