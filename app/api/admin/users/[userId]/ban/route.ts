@@ -22,9 +22,9 @@ export async function POST(
     }
 
     await supabase.from('admin_logs').insert({
-      admin_id: admin.id,
+      admin_id: String(admin.id),
       action: banned ? 'ban_user' : 'unban_user',
-      target_user_id: userId,
+      target_user_id: String(userId),
       details: { reason },
     });
 
