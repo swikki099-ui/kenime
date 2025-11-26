@@ -1,0 +1,45 @@
+{
+  "name": "kenime",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 5000",
+    "build": "next build",
+    "start": "next start -p 5000",
+    "lint": "next lint"
+  },
+  "description": "KENIME - Static Site Hosting Platform",
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-dropdown-menu": "^2.1.16",
+    "@radix-ui/react-select": "^2.2.6",
+    "@radix-ui/react-tabs": "^1.1.13",
+    "@radix-ui/react-toast": "^1.2.15",
+    "@supabase/auth-helpers-nextjs": "^0.10.0",
+    "@supabase/supabase-js": "^2.84.0",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "adm-zip": "^0.5.16",
+    "cheerio": "^1.1.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "formidable": "^3.5.4",
+    "lucide-react": "^0.554.0",
+    "next": "^16.0.4",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "recharts": "^3.5.0",
+    "sharp": "^0.34.5",
+    "tailwind-merge": "^3.4.0",
+    "tailwindcss": "^3.4.18",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@monaco-editor/react": "^4.7.0",
+    "@types/adm-zip": "^0.5.7",
+    "@types/formidable": "^3.4.6",
+    "autoprefixer": "^10.4.22",
+    "postcss": "^8.5.6"
+  }
+}

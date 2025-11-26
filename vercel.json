@@ -1,0 +1,23 @@
+{
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "rewrites": [
+    {
+      "source": "/:username/:path*",
+      "destination": "/sites/:username/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/sites/:username/:path*",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    }
+  ]
+}
