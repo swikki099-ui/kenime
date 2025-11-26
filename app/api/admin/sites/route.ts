@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { requireAdmin, createServiceClient } from '@/lib/auth/session';
 
 export async function GET() {
@@ -31,7 +31,7 @@ export async function GET() {
   }
 }
 
-export async function DELETE(request: Request) {
+export async function DELETE(request: NextRequest) {
   try {
     const admin = await requireAdmin();
     const { siteId, reason } = await request.json();
@@ -48,9 +48,9 @@ export async function DELETE(request: Request) {
     }
 
     await supabase.from('admin_logs').insert({
-      admin_id: admin.id,
+      admin_id: String(admin.id),
       action: 'delete_site',
-      target_site_id: siteId,
+      target_site_id: String(siteId),
       details: { reason },
     });
 
